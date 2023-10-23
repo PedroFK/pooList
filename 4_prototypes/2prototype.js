@@ -7,7 +7,7 @@ function Pessoa(peso, idade) {
 
 let pedro = new Pessoa(80, 20);
 Pessoa.prototype.pernas = 2;
-console.log(pedro);
+console.log(pedro); // Pessoa { peso: 80, idade: 20 }
 
 // -----------------------------------------
 // Se proto e obj tiverem mesma propriedade, o objeto tem prioridade
