@@ -1,7 +1,6 @@
-// Podemos copiar apenas o prototype e nao a instancia do objeto. LINHAS 21 e 22
-// dessa forma forma o código fica mais otimizado
+// Mesmo código anterior
+// Se formos utilizar o método de prototype chain, temos que usar métodos e propriedades que nao vao ser alteradas
 
-// Nesse código estou adicionando as propriedades fora da funcao, por meio de prototype
 function Veiculo() {}
 Veiculo.prototype.carenagem = 'aço'
 Veiculo.prototype.ligar = function() {
@@ -23,5 +22,12 @@ Carro.prototype = Veiculo.prototype // forma antiga = new Veiculo
 let tremBala = new Trem('TremBala')
 let ferrari = new Carro()
 
-tremBala.ligar() // Ligou
-ferrari.ligar() // Ligou
+// 
+// vou alterar a funcao de ligar do carro, o  PROBLEMA é que vai alterar a funcao LIGAR de veiculo
+Carro.prototype.ligar = function() { // Tem um efeito colateral
+  console.log('O carro ligou')
+}
+
+
+tremBala.ligar() // O carro ligou
+ferrari.ligar() // O carro ligou
